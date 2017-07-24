@@ -1,6 +1,6 @@
 #Webstorm ignore files
 *.iml
-.idea
+.idea/
 out
 #General
-node_modules
+node_modules/
