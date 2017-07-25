@@ -1,7 +1,7 @@
 var User = require(".models/user");
 
 module.exports = function(app) {
-    //send main page index for any other request
+    //Send main page index for any other request
     app.get("*", function(req, res) {
        res.send("./public/index.html");
     });

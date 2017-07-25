@@ -33,7 +33,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 require("./server/routes")();
 
-// error handling middleware should be loaded after the loading the routes
 if ("development" == app.get("env")) {
     app.use(errorHandler());
 }
