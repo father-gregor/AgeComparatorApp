@@ -1,10 +1,11 @@
-angular.controller("usersTableCtrl", function($scope) {
-    $scope.usersArr = {};
+app.controller("usersTableCtrl", function($scope, $http) {
+    $scope.userArr = {};
     $http.get("/api/get-users")
-        .success(function(data) {
-            $scope.usersArr = data;
-        })
-        .error(function (err) {
-            console.log("Error returned: " + err);
+        .then(function success(resp) {
+            console.log(resp.data);//add if condition to check data
+            $scope.userArr = resp.data;
+        },
+        function error(err) {
+            console.log("Error returned: " + err.data);
         });
 });

@@ -1,4 +1,4 @@
-var app = angular.module("ageComparatorApp");
+var app = angular.module("userAgeApp", ['ui.router']);
 app.config(function($urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
 });
