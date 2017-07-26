@@ -8,4 +8,8 @@ app.controller("usersTableCtrl", function($scope, $http) {
         function error(err) {
             console.log("Error returned: " + err.data);
         });
+    $scope.$on("updatedUserArray", function(event, data) {
+        console.log("User array updated!");
+        $scope.userArr = data;
+    });
 });
