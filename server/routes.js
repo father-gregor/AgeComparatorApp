@@ -10,7 +10,17 @@ module.exports = function(app) {
       })
     });
     app.post("/api/add-user", function(req, res) {
-
+        console.log(req.body);
+        User.create(req.body, function(err, users) {
+            if(err)
+                res.send(err);
+            User.find(function(err, users) {
+                if(err)
+                    res.send(err);
+                console.log(users);
+                res.json(users);
+            });
+        });
     });
     app.delete("/api/delete-user", function(req, res) {
 
