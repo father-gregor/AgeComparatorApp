@@ -24,7 +24,7 @@ module.exports = function(app) {
         res.send("./public/index.html");
     });
     function sendUsersArray(res) {
-        User.find(function(err, users) {
+        User.find({},{_id: 0, __v: 0}, function(err, users) {
             if(err)
                 res.send(err);
             console.log("Get users from DB");
@@ -37,8 +37,8 @@ module.exports = function(app) {
             greaterAge: 0,
             equalAge: 0
         };
-        User.find({email: {
-            $ne: newUser.email
+        User.find({_id: {
+            $ne: newUser._id
         }}, function(err, users) {
             if(err) {
                 console.log("Email wasn't send");
