@@ -1,6 +1,6 @@
 {
   "name": "AgeComparatorApp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple webapp for saving and retrieving users age",
   "scripts": {
     "start": "node app.js"
@@ -12,7 +12,8 @@
     "body-parser": "~1.17.2",
     "method-override": "~2.3.9",
     "nodemailer": "~4.0.1",
-    "node-schedule": "~1.2.3"
+    "node-schedule": "~1.2.3",
+    "validator": "~8.0.0"
   },
   "author": "father_gregor"
 }
