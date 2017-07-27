@@ -11,42 +11,47 @@
     <div class="container">
         <div class="row main">
             <div ng-controller="userFormCtrl">
-                <div class="main-userform main-center">
-                    <h5>Register in our system and compare yourself to other users</h5>
-                    <form ng-submit="sendUserForm()">
+                <div class="main-userform">
+                    <h4>Register in our system and compare yourself to other users</h4>
+                    <form name="userform" ng-submit="sendUserForm()">
                         <div class="form-group">
                             <label for="name" class="cols-sm-2 control-label">Enter your name</label>
-                            <div class="cols-sm-10">
-                                <input type="text" ng-model="user.name" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+                            <div class="cols-sm-10 input-style">
+                                <input type="text" ng-model="user.name" ng-required="user.name" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
                             </div>
+                            <span class="validate-input" ng-show="userform.$submitted && userform.name.$invalid">Name is required</span>
                         </div>
                         <div class="form-group">
                             <label for="surname" class="cols-sm-2 control-label">Enter your surname</label>
-                            <div class="cols-sm-10">
-                                <input type="text" ng-model="user.surname" class="form-control" name="surname" id="surname"  placeholder="Enter your surname"/>
+                            <div class="cols-sm-10 input-style">
+                                <input type="text" ng-model="user.surname" ng-required="user.surname" class="form-control" name="surname" id="surname"  placeholder="Enter your surname"/>
                             </div>
+                            <span class="validate-input" ng-show="userform.$submitted && userform.surname.$invalid">Surname is required</span>
                         </div>
                         <div class="form-group">
                             <label for="gender" class="cols-sm-2 control-label">Choose your gender</label>
-                            <div class="cols-sm-10">
-                                <div ng-repeat="gender in genders" id="gender">
-                                    <input type="radio" ng-model="user.gender" class="form-control" name="gender" ng-value="gender">{{gender}}
+                            <div class="cols-sm-10 input-style input-gender form-control">
+                                <div class="radio" ng-repeat="gender in genders" id="gender">
+                                    <label><input type="radio" ng-model="user.gender" ng-required="user.gender" class="form-control radio-gender" name="gender" ng-value="gender">{{gender}}</label>
                                 </div>
                             </div>
+                            <span class="validate-input" ng-show="userform.$submitted && userform.gender.$invalid">Gender is required</span>
                         </div>
                         <div class="form-group">
                             <label for="age" class="cols-sm-2 control-label">What's your age?</label>
-                            <div class="cols-sm-10">
-                                <input type="text" ng-model="user.age" class="form-control" name="age" id="age"  placeholder="Your age"/>
+                            <div class="cols-sm-10 input-style">
+                                <input type="text" ng-model="user.age" ng-required="user.age" class="form-control" name="age" id="age"  placeholder="Your age"/>
                             </div>
+                            <span class="validate-input" ng-show="userform.$submitted && userform.age.$invalid">Age is required</span>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="cols-sm-2 control-label">Enter your email</label>
-                            <div class="cols-sm-10">
-                                    <input type="text" ng-model="user.email" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                            <label for="email" class="cols-sm-2 control-label">Enter your E-mail</label>
+                            <div class="cols-sm-10 input-style">
+                                    <input type="text" ng-model="user.email" ng-required="user.email" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
                             </div>
+                            <span class="validate-input" ng-show="userform.$submitted && userform.email.$invalid">E-mail is required</span>
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group center-block">
                             <input type="submit" class="btn btn-primary submit-button" value="Submit"/>
                         </div>
                     </form>
